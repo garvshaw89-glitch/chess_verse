@@ -204,7 +204,7 @@ Full Shaders    Basic Shaders     Low Power GPU
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/chessverse-3d.git
+git clone https://github.com/garvshaw89-glitch/chessverse-3d.git
 cd chessverse-3d
 ```
 
@@ -217,7 +217,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open **http://localhost:3000** in your browser.
+Open **https://chessverse-nu.vercel.app/** in your browser.
 
 ### 4. Build for production
 ```bash
