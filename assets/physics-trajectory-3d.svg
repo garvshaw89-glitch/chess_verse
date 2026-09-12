@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="physBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#020617" stop-opacity="1" />
+      <stop offset="100%" stop-color="#00020a" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Arc Glow & Gradients -->
+    <linearGradient id="arcGrad" x1="0%" y1="100%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <linearGradient id="goldPieceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="45%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <linearGradient id="tileDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="tileLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="physGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="physSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      @keyframes jumpCycle {
+        0% {
+          transform: translate(220px, 280px) rotate(-12deg);
+        }
+        25% {
+          transform: translate(380px, 140px) rotate(-6deg);
+        }
+        50% {
+          transform: translate(500px, 100px) rotate(0deg);
+        }
+        75% {
+          transform: translate(620px, 140px) rotate(8deg);
+        }
+        92% {
+          transform: translate(780px, 280px) rotate(14deg);
+        }
+        96%, 100% {
+          transform: translate(780px, 290px) rotate(0deg);
+        }
+      }
+
+      @keyframes shadowCycle {
+        0% {
+          transform: translate(220px, 320px) scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translate(500px, 320px) scale(0.45);
+          opacity: 0.25;
+        }
+        92%, 100% {
+          transform: translate(780px, 320px) scale(1);
+          opacity: 0.7;
+        }
+      }
+
+      @keyframes rippleWave {
+        0% {
+          r: 6;
+          opacity: 1;
+        }
+        100% {
+          r: 54;
+          opacity: 0;
+        }
+      }
+
+      @keyframes pulseDotted {
+        0%, 100% { stroke-dashoffset: 0; }
+        50% { stroke-dashoffset: 30; }
+      }
+
+      @keyframes sparkFloat {
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+        50% { transform: translateY(-8px) scale(1.3); opacity: 0.9; }
+      }
+
+      .animated-knight {
+        animation: jumpCycle 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: center;
+      }
+
+      .animated-shadow {
+        animation: shadowCycle 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: center;
+      }
+
+      .impact-ripple {
+        animation: rippleWave 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+        animation-delay: 3.3s;
+      }
+
+      .trajectory-line {
+        stroke-dasharray: 8 6;
+        animation: pulseDotted 2s linear infinite;
+      }
+
+      .sparkle-node {
+        animation: sparkFloat 2s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Card Background -->
+  <rect width="1000" height="460" rx="16" fill="url(#physBg)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Top Title & Badge -->
+  <g transform="translate(50, 45)">
+    <rect x="0" y="0" width="130" height="24" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+    <text x="65" y="16" text-anchor="middle" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5">
+      PHYSICS ENGINE
+    </text>
+
+    <text x="0" y="55" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.5">
+      3D Parabolic Arc Trajectory &amp; Dynamic Tilt
+    </text>
+    <text x="0" y="78" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">
+      Kinematic equation: y(t) = h_lift + h_max · sin(π·t) with angular tilt vector -dx · θ(t)
+    </text>
+  </g>
+
+  <!-- Formula Callout Pill (Top Right) -->
+  <g transform="translate(740, 40)">
+    <rect width="210" height="52" rx="10" fill="#090d16" stroke="#a855f7" stroke-width="1" />
+    <text x="105" y="24" text-anchor="middle" fill="#c084fc" font-family="'Courier New', monospace" font-size="12" font-weight="bold">
+      h_max = 0.85 BU
+    </text>
+    <text x="105" y="42" text-anchor="middle" fill="#e2e8f0" font-family="'Courier New', monospace" font-size="11">
+      tilt = -dx · sin(π·t) · 0.12
+    </text>
+  </g>
+
+  <!-- 3D Isometric Board Tiles Base (Start & Destination Squares) -->
+  <g transform="translate(0, 0)">
+    <!-- Origin Square (e2 / start) -->
+    <g transform="translate(220, 320)">
+      <polygon points="0,-25 65,0 0,25 -65,0" fill="url(#tileLight)" stroke="#38bdf8" stroke-width="2" filter="url(#physSoftGlow)" />
+      <text x="0" y="4" text-anchor="middle" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">
+        FROM: e2
+      </text>
+      <!-- Liftoff indicator ring -->
+      <ellipse cx="0" cy="0" rx="35" ry="14" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.4" />
+    </g>
+
+    <!-- Intermediate Squares (Dotted references) -->
+    <g transform="translate(500, 320)">
+      <polygon points="0,-25 65,0 0,25 -65,0" fill="url(#tileDark)" stroke="#475569" stroke-width="1" opacity="0.6" />
+      <text x="0" y="4" text-anchor="middle" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">
+        MIDPOINT
+      </text>
+    </g>
+
+    <!-- Destination Square (e4 / target) -->
+    <g transform="translate(780, 320)">
+      <polygon points="0,-25 65,0 0,25 -65,0" fill="url(#tileLight)" stroke="#f59e0b" stroke-width="2" filter="url(#physSoftGlow)" />
+      <text x="0" y="4" text-anchor="middle" fill="#fde047" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">
+        TO: e4
+      </text>
+      
+      <!-- Landing Impact Shockwave Rings -->
+      <ellipse cx="0" cy="0" rx="20" ry="8" fill="none" stroke="#f59e0b" stroke-width="2" class="impact-ripple" />
+      <ellipse cx="0" cy="0" rx="35" ry="14" fill="none" stroke="#ec4899" stroke-width="1.5" class="impact-ripple" style="animation-delay: 3.45s;" />
+    </g>
+  </g>
+
+  <!-- 3D Parabolic Trajectory Arc Path -->
+  <g>
+    <!-- Ground projected line -->
+    <line x1="220" y1="320" x2="780" y2="320" stroke="#334155" stroke-width="2" stroke-dasharray="6 6" />
+    
+    <!-- Vertical Altitude Guideline at Apex -->
+    <line x1="500" y1="320" x2="500" y2="100" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4 4" />
+    <!-- Apex Measurement Marker -->
+    <circle cx="500" cy="100" r="4" fill="#c084fc" filter="url(#physSoftGlow)" />
+    <text x="515" y="105" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">
+      APEX LIFT (y = 0.85)
+    </text>
+
+    <!-- The 3D Flight Curve -->
+    <path d="M 220,290 Q 500,40 780,290" fill="none" stroke="url(#arcGrad)" stroke-width="4" filter="url(#physGlow)" />
+    <path d="M 220,290 Q 500,40 780,290" fill="none" stroke="#ffffff" stroke-width="1.5" class="trajectory-line" />
+  </g>
+
+  <!-- Dynamic Scaling Ground Shadow -->
+  <g class="animated-shadow">
+    <ellipse cx="0" cy="0" rx="30" ry="11" fill="#000000" />
+  </g>
+
+  <!-- Dynamic Flying 3D Piece (Knight) -->
+  <g class="animated-knight" filter="url(#physGlow)">
+    <!-- Base -->
+    <ellipse cx="0" cy="18" rx="22" ry="7" fill="url(#goldPieceGrad)" stroke="#78350f" stroke-width="1" />
+    
+    <!-- Knight Body Silhouette with Gold Shading -->
+    <path d="M -18,16 Q -12,0 -15,-15 Q -18,-28 -12,-44 Q -6,-56 6,-56 Q 18,-52 18,-40 Q 14,-34 17,-26 Q 22,-18 16,-4 Q 12,8 18,16 Z" 
+          fill="url(#goldPieceGrad)" stroke="#fef08a" stroke-width="1.5" />
+    <!-- Mane -->
+    <path d="M 6,-56 L 11,-64 L 3,-58 Z" fill="#ffffff" />
+    <!-- Glowing Eye -->
+    <circle cx="6" cy="-38" r="2.5" fill="#38bdf8" filter="url(#physSoftGlow)" />
+  </g>
+
+  <!-- Interactive Telemetry Annotations (Bottom Row) -->
+  <g transform="translate(140, 395)">
+    <!-- 1. Lift-Off Phase -->
+    <g transform="translate(80, 0)">
+      <circle cx="0" cy="0" r="4" fill="#38bdf8" />
+      <text x="12" y="4" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">
+        Phase 1: Vertical Lift
+      </text>
+      <text x="12" y="20" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">
+        Selected piece lifts 0.42 BU with soft bobbing
+      </text>
+    </g>
+
+    <!-- 2. Trajectory Transit -->
+    <g transform="translate(360, 0)">
+      <circle cx="0" cy="0" r="4" fill="#a855f7" />
+      <text x="12" y="4" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">
+        Phase 2: Parabolic Flight
+      </text>
+      <text x="12" y="20" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">
+        Tilt direction vector aligns with move delta
+      </text>
+    </g>
+
+    <!-- 3. Settling & Haptics -->
+    <g transform="translate(640, 0)">
+      <circle cx="0" cy="0" r="4" fill="#f59e0b" />
+      <text x="12" y="4" fill="#fde047" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">
+        Phase 3: Damped Landing
+      </text>
+      <text x="12" y="20" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">
+        Synthesized woody thud + haptic board ring
+      </text>
+    </g>
+  </g>
+</svg>

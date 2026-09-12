@@ -1,0 +1,6 @@
+{
+  "name": "Chess Verse",
+  "description": "Master the board. Control the game. Immersive cinematic 3D chess platform featuring realistic physics, interactive 3D learning academy, tactical puzzles, and local pass & play.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

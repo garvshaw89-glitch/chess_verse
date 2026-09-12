@@ -1,0 +1,142 @@
+<!-- Forwarding copy of pieces-showcase-3d.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" width="100%" height="100%">
+  <defs>
+    <radialGradient id="showcaseBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#020617" stop-opacity="1" />
+      <stop offset="100%" stop-color="#00020a" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="goldMtl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <linearGradient id="silverMtl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5f3fc" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0e7490" />
+    </linearGradient>
+    <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0abfc" />
+      <stop offset="50%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#6b21a8" />
+    </linearGradient>
+    <linearGradient id="neonEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7" />
+      <stop offset="50%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+    <linearGradient id="neonRuby" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="50%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#881337" />
+    </linearGradient>
+    <filter id="pcGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="pcSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <style>
+      @keyframes floatP1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
+      @keyframes floatP2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-18px) rotate(-1.5deg); } }
+      @keyframes floatP3 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+      @keyframes floatP4 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-16px) rotate(-1deg); } }
+      @keyframes floatP5 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-13px) rotate(1.2deg); } }
+      @keyframes floatP6 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-0.8deg); } }
+      .p-king   { animation: floatP1 4.2s ease-in-out infinite; }
+      .p-queen  { animation: floatP2 4.8s ease-in-out infinite; animation-delay: 0.4s; }
+      .p-rook   { animation: floatP3 3.9s ease-in-out infinite; animation-delay: 0.8s; }
+      .p-bishop { animation: floatP4 4.5s ease-in-out infinite; animation-delay: 1.2s; }
+      .p-knight { animation: floatP5 4.1s ease-in-out infinite; animation-delay: 1.6s; }
+      .p-pawn   { animation: floatP6 3.6s ease-in-out infinite; animation-delay: 2.0s; }
+    </style>
+  </defs>
+  <rect width="1100" height="420" rx="16" fill="url(#showcaseBg)" stroke="#1e293b" stroke-width="1.5" />
+  <g transform="translate(50, 42)">
+    <rect x="0" y="0" width="136" height="24" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="1" />
+    <text x="68" y="16" text-anchor="middle" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5">3D MESH GALLERY</text>
+    <text x="0" y="54" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.5">Faceted Procedural 3D Piece Geometries</text>
+    <text x="0" y="76" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Multi-tier LOD rendering, PBR metallic reflections, and customizable shader themes</text>
+  </g>
+  <!-- King -->
+  <g transform="translate(110, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#f59e0b" stroke-width="1.5" />
+    <g class="p-king" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="28" ry="8" fill="url(#goldMtl)" stroke="#78350f" stroke-width="1" />
+      <path d="M -24,18 Q -16,2 -14,-18 Q -20,-36 -12,-52 Q -6,-62 0,-62 Q 6,-62 12,-52 Q 20,-36 14,-18 Q 16,2 24,18 Z" fill="url(#goldMtl)" stroke="#fef08a" stroke-width="1.2" />
+      <ellipse cx="0" cy="-56" rx="16" ry="6" fill="url(#goldMtl)" />
+      <rect x="-2" y="-90" width="4" height="18" rx="1.5" fill="#fef08a" />
+      <rect x="-8" y="-84" width="16" height="4" rx="1.5" fill="#fef08a" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">KING</text>
+    <text x="0" y="88" text-anchor="middle" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Royal Core (∞)</text>
+  </g>
+  <!-- Queen -->
+  <g transform="translate(280, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#c084fc" stroke-width="1.5" />
+    <g class="p-queen" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="26" ry="8" fill="url(#neonPurple)" stroke="#581c87" stroke-width="1" />
+      <path d="M -22,18 Q -15,0 -12,-20 Q -18,-42 -10,-58 Q 0,-66 10,-58 Q 18,-42 12,-20 Q 15,0 22,18 Z" fill="url(#neonPurple)" stroke="#f0abfc" stroke-width="1.2" />
+      <circle cx="-14" cy="-62" r="3" fill="#f5d0fe" />
+      <circle cx="0" cy="-68" r="4" fill="#ffffff" filter="url(#pcSoftGlow)" />
+      <circle cx="14" cy="-62" r="3" fill="#f5d0fe" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">QUEEN</text>
+    <text x="0" y="88" text-anchor="middle" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">9 Points (Dynasty)</text>
+  </g>
+  <!-- Rook -->
+  <g transform="translate(450, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#38bdf8" stroke-width="1.5" />
+    <g class="p-rook" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="25" ry="8" fill="url(#silverMtl)" stroke="#1e293b" stroke-width="1" />
+      <path d="M -18,18 L -15,-32 L 15,-32 L 18,18 Z" fill="url(#silverMtl)" stroke="#e2e8f0" stroke-width="1.2" />
+      <rect x="-18" y="-46" width="36" height="14" fill="url(#silverMtl)" stroke="#ffffff" stroke-width="1" />
+      <rect x="-7" y="-46" width="14" height="6" fill="#090d16" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">ROOK</text>
+    <text x="0" y="88" text-anchor="middle" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">5 Points (Siege)</text>
+  </g>
+  <!-- Bishop -->
+  <g transform="translate(620, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#10b981" stroke-width="1.5" />
+    <g class="p-bishop" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="24" ry="7.5" fill="url(#neonEmerald)" stroke="#064e3b" stroke-width="1" />
+      <path d="M -18,18 Q -10,0 -10,-18 Q -16,-34 -2,-56 Q 0,-60 2,-56 Q 16,-34 10,-18 Q 10,0 18,18 Z" fill="url(#neonEmerald)" stroke="#6ee7b7" stroke-width="1.2" />
+      <line x1="-5" y1="-38" x2="3" y2="-48" stroke="#064e3b" stroke-width="2" />
+      <circle cx="0" cy="-60" r="3" fill="#ffffff" filter="url(#pcSoftGlow)" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">BISHOP</text>
+    <text x="0" y="88" text-anchor="middle" fill="#10b981" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">3 Points (Diagonals)</text>
+  </g>
+  <!-- Knight -->
+  <g transform="translate(790, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#06b6d4" stroke-width="1.5" />
+    <g class="p-knight" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="23" ry="7.5" fill="url(#neonCyan)" stroke="#164e63" stroke-width="1" />
+      <path d="M -16,18 Q -10,2 -13,-12 Q -16,-26 -10,-42 Q -4,-54 6,-54 Q 18,-50 17,-36 Q 13,-30 16,-22 Q 20,-14 14,-2 Q 10,8 16,18 Z" fill="url(#neonCyan)" stroke="#a5f3fc" stroke-width="1.2" />
+      <path d="M 6,-54 L 11,-62 L 3,-56 Z" fill="#ffffff" />
+      <circle cx="6" cy="-35" r="2.5" fill="#ffffff" filter="url(#pcSoftGlow)" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">KNIGHT</text>
+    <text x="0" y="88" text-anchor="middle" fill="#06b6d4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">3 Points (Vault Jump)</text>
+  </g>
+  <!-- Pawn -->
+  <g transform="translate(960, 270)">
+    <ellipse cx="0" cy="40" rx="42" ry="14" fill="#090d16" stroke="#f43f5e" stroke-width="1.5" />
+    <g class="p-pawn" filter="url(#pcGlow)">
+      <ellipse cx="0" cy="20" rx="20" ry="6.5" fill="url(#neonRuby)" stroke="#881337" stroke-width="1" />
+      <path d="M -14,18 Q -8,4 -6,-10 Q -10,-24 0,-24 Q 10,-24 6,-10 Q 8,4 14,18 Z" fill="url(#neonRuby)" stroke="#fca5a5" stroke-width="1.2" />
+      <circle cx="0" cy="-34" r="10" fill="url(#neonRuby)" stroke="#ffe4e6" stroke-width="1.2" />
+    </g>
+    <text x="0" y="72" text-anchor="middle" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="bold">PAWN</text>
+    <text x="0" y="88" text-anchor="middle" fill="#f43f5e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">1 Pt (Promotion)</text>
+  </g>
+</svg>

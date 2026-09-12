@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#020617" stop-opacity="1" />
+    </radialGradient>
+
+    <linearGradient id="boardEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="35%" stop-color="#a78bfa" />
+      <stop offset="70%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <linearGradient id="goldPiece" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <linearGradient id="silverPiece" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="cyanPiece" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0e7490" />
+    </linearGradient>
+
+    <!-- Filters for 3D depth and neon glow -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="pieceShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feOffset dx="0" dy="18" result="offset" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.45" />
+      </feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="offset" operator="over" />
+    </filter>
+
+    <style>
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-16px) rotate(1.5deg); }
+      }
+      @keyframes floatAlt {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(-2deg); }
+      }
+      @keyframes floatFast {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.05); }
+      }
+      @keyframes gridShimmer {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.85; }
+      }
+      .floating-king {
+        animation: floatSlow 5s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .floating-knight {
+        animation: floatAlt 6s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .floating-queen {
+        animation: floatFast 4.5s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .pulse-ring {
+        animation: pulseGlow 4s ease-in-out infinite;
+        transform-origin: 600px 320px;
+      }
+      .grid-lines {
+        animation: gridShimmer 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="480" fill="#020617" rx="16" />
+  <rect width="1200" height="480" fill="url(#bgGlow)" rx="16" />
+
+  <!-- Ambient Light Circles -->
+  <circle cx="280" cy="180" r="180" fill="#3b82f6" opacity="0.12" filter="url(#glow)" />
+  <circle cx="920" cy="240" r="220" fill="#a855f7" opacity="0.1" filter="url(#glow)" />
+  <circle cx="600" cy="360" r="260" fill="#06b6d4" opacity="0.08" filter="url(#glow)" />
+
+  <!-- 3D Isometric Chessboard Stage -->
+  <g transform="translate(600, 310)" class="pulse-ring">
+    <ellipse cx="0" cy="40" rx="380" ry="110" fill="none" stroke="url(#boardEdge)" stroke-width="2" opacity="0.3" filter="url(#glow)" />
+  </g>
+
+  <g transform="translate(600, 290)">
+    <!-- Board Base Extrusion (3D thickness) -->
+    <path d="M 0,-70 L 320,10 L 320,35 L 0,115 L -320,35 L -320,10 Z" fill="#090d16" stroke="#1e293b" stroke-width="1.5" />
+    <path d="M 0,115 L 320,35 L 320,48 L 0,128 L -320,48 L -320,35 Z" fill="#030712" />
+
+    <!-- Top Isometric Board Surface -->
+    <g class="grid-lines">
+      <!-- Outer Board Border -->
+      <polygon points="0,-70 320,10 0,90 -320,10" fill="#0f172a" stroke="url(#boardEdge)" stroke-width="2.5" />
+      
+      <!-- Checkerboard Squares (Isometric Projection) -->
+      <line x1="-240" y1="-10" x2="80" y2="70" stroke="#334155" stroke-width="1" opacity="0.5" />
+      <line x1="-160" y1="-30" x2="160" y2="50" stroke="#334155" stroke-width="1" opacity="0.5" />
+      <line x1="-80" y1="-50" x2="240" y2="30" stroke="#334155" stroke-width="1" opacity="0.5" />
+      
+      <line x1="-80" y1="70" x2="240" y2="-10" stroke="#334155" stroke-width="1" opacity="0.5" />
+      <line x1="-160" y1="50" x2="160" y2="-30" stroke="#334155" stroke-width="1" opacity="0.5" />
+      <line x1="-240" y1="30" x2="80" y2="-50" stroke="#334155" stroke-width="1" opacity="0.5" />
+
+      <!-- Glowing Accent Tiles -->
+      <polygon points="0,10 80,30 0,50 -80,30" fill="#3b82f6" fill-opacity="0.25" stroke="#60a5fa" stroke-width="1.5" filter="url(#softGlow)" />
+      <polygon points="80,-10 160,10 80,30 0,10" fill="#8b5cf6" fill-opacity="0.2" stroke="#a78bfa" stroke-width="1" />
+      <polygon points="-80,-10 0,10 -80,30 -160,10" fill="#ec4899" fill-opacity="0.18" stroke="#f472b6" stroke-width="1" />
+      <polygon points="0,-70 80,-50 0,-30 -80,-50" fill="#06b6d4" fill-opacity="0.2" stroke="#22d3ee" stroke-width="1" />
+    </g>
+
+    <!-- Isometric Target Highlight Tile -->
+    <polygon points="0,10 80,30 0,50 -80,30" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#glow)">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+    </polygon>
+  </g>
+
+  <!-- Floating 3D Chess Pieces -->
+  <!-- 1. Center King (Gold Metallic 3D) -->
+  <g class="floating-king" transform="translate(600, 240)" filter="url(#pieceShadow)">
+    <ellipse cx="0" cy="50" rx="36" ry="12" fill="#000000" opacity="0.5" />
+    <ellipse cx="0" cy="30" rx="34" ry="10" fill="url(#goldPiece)" stroke="#78350f" stroke-width="1" />
+    <path d="M -30,28 Q -20,10 -18,-15 Q -25,-35 -14,-55 Q -8,-65 0,-65 Q 8,-65 14,-55 Q 25,-35 18,-15 Q 20,10 30,28 Z" fill="url(#goldPiece)" stroke="#fde047" stroke-width="1.2" />
+    <ellipse cx="0" cy="-60" rx="20" ry="7" fill="url(#goldPiece)" stroke="#fef08a" stroke-width="1" />
+    <path d="M -18,-62 L -22,-80 L -8,-70 L 0,-85 L 8,-70 L 22,-80 L 18,-62 Z" fill="url(#goldPiece)" stroke="#fef08a" stroke-width="1" />
+    <rect x="-3" y="-105" width="6" height="22" rx="2" fill="#fef08a" />
+    <rect x="-10" y="-98" width="20" height="6" rx="2" fill="#fef08a" />
+    <circle cx="0" cy="-95" r="4" fill="#ffffff" filter="url(#softGlow)" />
+  </g>
+
+  <!-- 2. Left Knight (Silver Metallic 3D) -->
+  <g class="floating-knight" transform="translate(420, 260)" filter="url(#pieceShadow)">
+    <ellipse cx="0" cy="45" rx="28" ry="9" fill="#000000" opacity="0.45" />
+    <ellipse cx="0" cy="28" rx="26" ry="8" fill="url(#silverPiece)" stroke="#475569" stroke-width="1" />
+    <path d="M -22,26 Q -15,5 -18,-15 Q -22,-30 -15,-50 Q -8,-65 8,-65 Q 22,-60 22,-45 Q 16,-38 20,-30 Q 25,-20 18,-5 Q 14,10 22,26 Z" fill="url(#silverPiece)" stroke="#cbd5e1" stroke-width="1" />
+    <path d="M 8,-65 L 14,-75 L 4,-68 Z" fill="#ffffff" />
+    <circle cx="8" cy="-45" r="3" fill="#38bdf8" filter="url(#softGlow)" />
+  </g>
+
+  <!-- 3. Right Queen / Rook (Cyan Neon 3D) -->
+  <g class="floating-queen" transform="translate(780, 255)" filter="url(#pieceShadow)">
+    <ellipse cx="0" cy="45" rx="30" ry="10" fill="#000000" opacity="0.45" />
+    <ellipse cx="0" cy="28" rx="28" ry="9" fill="url(#cyanPiece)" stroke="#164e63" stroke-width="1" />
+    <path d="M -24,26 Q -16,8 -14,-20 Q -20,-45 -12,-60 Q 0,-68 12,-60 Q 20,-45 14,-20 Q 16,8 24,26 Z" fill="url(#cyanPiece)" stroke="#67e8f9" stroke-width="1" />
+    <circle cx="-16" cy="-66" r="3.5" fill="#a5f3fc" filter="url(#softGlow)" />
+    <circle cx="0" cy="-72" r="4.5" fill="#ffffff" filter="url(#glow)" />
+    <circle cx="16" cy="-66" r="3.5" fill="#a5f3fc" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Foreground Atmospheric Sparks & Particle Stars -->
+  <g opacity="0.65">
+    <circle cx="220" cy="140" r="2" fill="#60a5fa">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="340" cy="100" r="1.5" fill="#f472b6">
+      <animate attributeName="opacity" values="0.1;0.9;0.1" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="860" cy="120" r="2.5" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="980" cy="160" r="1.5" fill="#c084fc">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="510" cy="180" r="2" fill="#fde047">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Typography & Headers -->
+  <g transform="translate(600, 48)">
+    <rect x="-140" y="-14" width="280" height="28" rx="14" fill="#1e293b" fill-opacity="0.8" stroke="#3b82f6" stroke-width="1" />
+    <text x="0" y="4" text-anchor="middle" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="2">
+      ⚡ NEXT-GEN 3D WEBGL CHESS
+    </text>
+  </g>
+
+  <text x="600" y="112" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="900" letter-spacing="4" fill="url(#textGrad)" filter="url(#softGlow)">
+    CHESSVERSE 3D
+  </text>
+
+  <text x="600" y="146" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="400" letter-spacing="1" fill="#94a3b8">
+    Immersive Three.js Visuals • Real-Time WebSockets • Offline Heuristic AI • Zero Paid APIs
+  </text>
+</svg>
