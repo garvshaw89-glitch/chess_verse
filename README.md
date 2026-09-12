@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ CHESSVERSE 3D
+# ⚡ CHESSVERSE
 ### *Next-Generation 3D WebGL Chess Universe, Interactive Academy & Local Arena*
 
 [![WebGL](https://img.shields.io/badge/WebGL-Three.js_r183-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
@@ -34,6 +34,8 @@
 ---
 
 </div>
+
+## 📊 Live Project: https://chessverse-nu.vercel.app/
 
 ## 🌟 Highlights & Capabilities
 
